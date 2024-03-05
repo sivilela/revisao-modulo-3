@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import { HashManager } from './services/HashManager'
+import { log } from 'console'
 
 dotenv.config()
 
@@ -16,5 +18,11 @@ app.listen(Number(process.env.PORT) || 3003, () => {
 app.get("/ping", (req, res) => {
   res.send("Pong!")
 })
+
+// const hashManager = new HashManager()
+// hashManager.hash("fulano123").then((res) => {
+//   console.log(res)  
+// })
+
 
 // routers das entidades
