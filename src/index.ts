@@ -3,6 +3,8 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import { HashManager } from './services/HashManager'
 import { log } from 'console'
+import { userRouter } from './router/userRouter'
+import { playlistRouter } from './router/playlistRouter'
 
 dotenv.config()
 
@@ -15,9 +17,37 @@ app.listen(Number(process.env.PORT) || 3003, () => {
     console.log(`Servidor rodando na porta ${Number(process.env.PORT) || 3003}`)
 })
 
+app.use("/users", userRouter)
+
+app.use("/playlists", playlistRouter)
+
 app.get("/ping", (req, res) => {
   res.send("Pong!")
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const hashManager = new HashManager()
 // hashManager.hash("fulano123").then((res) => {
